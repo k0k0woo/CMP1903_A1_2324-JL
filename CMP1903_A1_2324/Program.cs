@@ -16,10 +16,12 @@ namespace CMP1903_A1_2324
              */
 
             Game game = new Game();
+            while (true)
+            {
+                game.GameRoll();
 
-            game.GameRoll();
-
-            Console.ReadLine();
+                Console.ReadLine();
+            }
         }
     }
 }

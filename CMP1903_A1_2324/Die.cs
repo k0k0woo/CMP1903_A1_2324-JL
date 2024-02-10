@@ -19,12 +19,13 @@ namespace CMP1903_A1_2324
         public int Value { get { return _Value; } set { _Value = value; } }
 
 
-        Random random = new Random();
         //Method
 
-        public void RollDice() 
+        public void RollDice(Random rand) 
         {
-            Value = random.Next(1,6);
+            Console.WriteLine(Value);
+            _Value = rand.Next(1,6);
+            Console.WriteLine(Value);
         }
 
     }

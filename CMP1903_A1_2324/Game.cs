@@ -18,20 +18,22 @@ namespace CMP1903_A1_2324
         private Die dice1 = new Die();
         private Die dice2 = new Die();
         private Die dice3 = new Die();
+        private Random random = new Random();
         //Methods
 
         public void GameRoll()
         {
             int sum;
-            dice1.RollDice();
+
+            dice1.RollDice(random);
             Console.WriteLine("Die 1: " + dice1.Value);
             sum = dice1.Value;
 
-            dice2.RollDice();
+            dice2.RollDice(random);
             Console.WriteLine("Die 2: " + dice2.Value);
             sum += dice2.Value;
 
-            dice3.RollDice();
+            dice3.RollDice(random);
             Console.WriteLine("Die 3: " + dice3.Value);
             sum += dice3.Value;
 
