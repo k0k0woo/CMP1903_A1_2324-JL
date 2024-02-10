@@ -34,25 +34,14 @@ namespace CMP1903_A1_2324
             int sum = 0;
 
             // Call Roll dice method and add output to sum
-            sum += CallDiceRoll(dice1, random);
-            sum += CallDiceRoll(dice2, random);
-            sum += CallDiceRoll(dice3, random);
+            sum += dice1.RollDice(random);
+            sum += dice2.RollDice(random);
+            sum += dice3.RollDice(random);
 
             // Output final sum
             Console.WriteLine("\nSum = " + sum);
-        }
 
-        // Method to roll die
-        static int CallDiceRoll(Die die,Random random)
-        {
-            // Call dice method to roll with input of random seed
-            die.RollDice(random);
 
-            // Output die roll to terminal
-            Console.WriteLine("Die rolled =  " + die.Value);
-
-            // return roll value
-            return die.Value;
         }
     }
 }

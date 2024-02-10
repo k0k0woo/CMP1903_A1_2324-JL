@@ -24,9 +24,11 @@ namespace CMP1903_A1_2324
         //Method
 
         // Takes a random seed then generates a random number for value
-        public void RollDice(Random rand) 
+        public int RollDice(Random rand) 
         {
-            _Value = rand.Next(1,6);
+            Value = rand.Next(1,6);
+            Console.WriteLine("Die = " +  Value);
+            return Value;
         }
 
     }
