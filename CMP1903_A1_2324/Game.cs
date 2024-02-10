@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,21 +18,21 @@ namespace CMP1903_A1_2324
 
         // Create Die
 
-        private Die dice1 = new Die();
-        private Die dice2 = new Die();
-        private Die dice3 = new Die();
+        public Die dice1 = new Die();
+        public Die dice2 = new Die();
+        public Die dice3 = new Die();
 
         // Create random seed
         private Random random = new Random();
 
-
+        public int sum;
         //Methods
 
         // Method called to start game
         public void GameStart()
         {
             // set sum
-            int sum = 0;
+            sum = 0;
 
             // Call Roll dice method and add output to sum
             sum += dice1.RollDice(random);
