@@ -13,11 +13,19 @@ namespace CMP1903_A1_2324
          * and one method that rolls the die, returns and integer and takes no parameters.
          */
 
+        private int _Value;
+
         //Property
+        public int Value { get { return _Value; } set { _Value = value; } }
 
 
+        Random random = new Random();
         //Method
 
+        public void RollDice() 
+        {
+            Value = random.Next(1,6);
+        }
 
     }
 }

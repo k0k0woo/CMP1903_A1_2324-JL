@@ -15,7 +15,27 @@ namespace CMP1903_A1_2324
          * rolls could be continous, and the totals and other statistics could be summarised for example.
          */
 
+        private Die dice1 = new Die();
+        private Die dice2 = new Die();
+        private Die dice3 = new Die();
         //Methods
 
+        public void GameRoll()
+        {
+            int sum;
+            dice1.RollDice();
+            Console.WriteLine("Die 1: " + dice1.Value);
+            sum = dice1.Value;
+
+            dice2.RollDice();
+            Console.WriteLine("Die 2: " + dice2.Value);
+            sum += dice2.Value;
+
+            dice3.RollDice();
+            Console.WriteLine("Die 3: " + dice3.Value);
+            sum += dice3.Value;
+
+            Console.WriteLine("Sum = " + sum);
+        }
     }
 }
