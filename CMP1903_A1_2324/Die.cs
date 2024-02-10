@@ -13,6 +13,8 @@ namespace CMP1903_A1_2324
          * and one method that rolls the die, returns and integer and takes no parameters.
          */
 
+
+        // Store value
         private int _Value;
 
         //Property
@@ -21,11 +23,10 @@ namespace CMP1903_A1_2324
 
         //Method
 
+        // Takes a random seed then generates a random number for value
         public void RollDice(Random rand) 
         {
-            Console.WriteLine(Value);
             _Value = rand.Next(1,6);
-            Console.WriteLine(Value);
         }
 
     }
