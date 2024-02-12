@@ -25,22 +25,28 @@ namespace CMP1903_A1_2324
         // Create random seed
         private Random random = new Random();
 
-        public int sum;
+
+        private int _sum;
+        public int sum
+        {
+            get { return _sum; }
+            set { _sum = value; }
+        }
         //Methods
 
         // Method called to start game
         public void GameStart()
         {
             // set sum
-            sum = 0;
+            _sum = 0;
 
             // Call Roll dice method and add output to sum
-            sum += dice1.RollDice(random);
-            sum += dice2.RollDice(random);
-            sum += dice3.RollDice(random);
+            _sum += dice1.RollDice(random);
+            _sum += dice2.RollDice(random);
+            _sum += dice3.RollDice(random);
 
             // Output final sum
-            Console.WriteLine("\nSum = " + sum);
+            Console.WriteLine("\nSum = " + _sum);
 
 
         }
