@@ -19,28 +19,20 @@ namespace CMP1903_A1_2324
         //Method
         public void Test(Game game)
         {
+				Console.WriteLine("###########################\n");
 
-            // Create an endless loop
-            while (true)
-            {
-                Console.WriteLine("###########################\n");
+				// Notify if dice roll incorrect
+				Debug.Assert(game.dice1.Value > 1 || game.dice1.Value < 6);
+				Debug.Assert(game.dice2.Value > 1 || game.dice2.Value < 6);
+				Debug.Assert(game.dice3.Value > 1 || game.dice3.Value < 6);
 
-                // Call start game method
-                game.GameStart();
-
-                // Notify if dice roll incorrect
-                Debug.Assert(game.dice1.Value > 1 || game.dice1.Value < 6);
-                Debug.Assert(game.dice2.Value > 1 || game.dice2.Value < 6);
-                Debug.Assert(game.dice3.Value > 1 || game.dice3.Value < 6);
-
-                // Check if sum is correct
-                Debug.Assert(game.sum == (game.dice1.Value + game.dice2.Value + game.dice3.Value));
-
-                // After game done, tell user how to play again
-                Console.WriteLine("\nPress enter to roll again ....");
-                // Wait for input
-                Console.ReadLine();
-            }
+				// Check if sum is correct
+				Debug.Assert(game.sum == (game.dice1.Value + game.dice2.Value + game.dice3.Value));
+				
+				// After game done, tell user how to play again
+				Console.WriteLine("\nDebug....\n\nPress enter to roll again...");
+				// Wait for input
+				Console.ReadLine();
         }
     }
 }

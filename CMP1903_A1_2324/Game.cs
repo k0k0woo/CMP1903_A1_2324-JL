@@ -27,26 +27,24 @@ namespace CMP1903_A1_2324
         private int _sum;
 
         //propeties
-        public int sum
-        {
-            get { return _sum; }
-            set { _sum = value; }
-        }
+        public int sum { get { return _sum; }set { _sum = value; }}
+
+
         //Methods
 
         // Method called to start game
         public void GameStart()
         {
             // set sum
-            _sum = 0;
+            sum = 0;
 
             // Call Roll dice method and add output to sum
-            _sum += dice1.RollDice();
-            _sum += dice2.RollDice();
-            _sum += dice3.RollDice();
+            sum += dice1.RollDice();
+            sum += dice2.RollDice();
+            sum += dice3.RollDice();
 
             // Output final sum
-            Console.WriteLine("\nSum = " + _sum);
+            Console.WriteLine("\nSum = " + sum);
 
 
         }
