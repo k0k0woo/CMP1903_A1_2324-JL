@@ -22,11 +22,11 @@ namespace CMP1903_A1_2324
         public Die dice2 = new Die();
         public Die dice3 = new Die();
 
-        // Create random seed
-        private Random random = new Random();
 
-
+        // sum variable
         private int _sum;
+
+        //propeties
         public int sum
         {
             get { return _sum; }
@@ -41,9 +41,9 @@ namespace CMP1903_A1_2324
             _sum = 0;
 
             // Call Roll dice method and add output to sum
-            _sum += dice1.RollDice(random);
-            _sum += dice2.RollDice(random);
-            _sum += dice3.RollDice(random);
+            _sum += dice1.RollDice();
+            _sum += dice2.RollDice();
+            _sum += dice3.RollDice();
 
             // Output final sum
             Console.WriteLine("\nSum = " + _sum);
