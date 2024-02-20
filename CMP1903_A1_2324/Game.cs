@@ -53,7 +53,7 @@ namespace CMP1903_A1_2324
             }
         }
 
-        public void RollDice(int RollNum)
+        private void RollDice(int RollNum)
         {
             var sumsList = new List<int>();
             for (int i = 1; i < RollNum+1; i++)
@@ -70,20 +70,53 @@ namespace CMP1903_A1_2324
                 // Output final sum
                 Console.WriteLine("\nRoll: " + i + " Sum = " + sum);
             }
+
             sumsList.ToArray();
-            int total = 0;
+            double total = 0;
             int minSum = 0;
             int maxSum = 0;
             double average;
+
             foreach (int number in sumsList)
             {
                 total += number;
-                if(number < minSum || minSum == 0) minSum = number;
-                if(number > maxSum || maxSum == 0) maxSum = number;
+
+                // check if smallest
+                minSum = MinCheck(number,minSum);
+
+                // check if biggest
+                maxSum = MaxCheck(number,maxSum);
             }
 
-            average = (total / sumsList.Count);
-            Console.WriteLine("\nTotal sum: " + total + "\nHighest sum: " + maxSum + "\nLowest sum: " + minSum + "\nAverage: " + average);
+            // calculate average
+            average = CalcAverage(total,sumsList.Count);
+
+
+            //output data to terminal
+            Console.WriteLine("\nTotal sum: " + total + "\nHighest sum: " + maxSum + "\nLowest sum: " + minSum + "\nAverage: " + average.ToString("0.00"));
+        }
+
+        //Check if number is smaller
+        private int MinCheck(int number, int minSum) 
+        {
+            //if number is smaller return number
+            if (number < minSum || minSum == 0) { return number; }
+            //else return current minsum
+            else { return minSum; }
+        }
+
+        private int MaxCheck(int number, int maxSum) 
+        {
+            //if number is smaller return number
+            if (number > maxSum || maxSum == 0) { return number; }
+            //else return current minsum
+            else { return maxSum; }
+        }
+
+        private double CalcAverage(double total,double numElements)
+        {
+            // divide total sum by number of sums (calc mean)
+            return total / numElements;
         }
     }
 }

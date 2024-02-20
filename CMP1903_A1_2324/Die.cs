@@ -27,7 +27,7 @@ namespace CMP1903_A1_2324
         public int RollDice() 
         {
             Value = new Random(Guid.NewGuid().GetHashCode()).Next(1,7);
-            Console.WriteLine("Die = " +  Value);
+            //Console.WriteLine("Die = " +  Value);
             return Value;
         }
 
