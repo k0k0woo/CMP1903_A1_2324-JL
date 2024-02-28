@@ -19,7 +19,7 @@ namespace CMP1903_A1_2324
             // Create game object
             Game game = new Game();
 
-            //Create testing for debugging
+            // Create testing for debugging
             Testing testing = new Testing();
 
             // Create an endless loop

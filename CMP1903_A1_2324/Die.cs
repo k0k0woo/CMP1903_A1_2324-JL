@@ -17,17 +17,19 @@ namespace CMP1903_A1_2324
         // Store value
         private int _Value;
 
-        //Property
+        // Property
         public int Value { get { return _Value; } set { _Value = value; } }
 
 
-        //Method
+        // Method
 
         // Takes a random seed then generates a random number for value
         public int RollDice() 
         {
+            // Change the value to new random value (1-6)
             Value = new Random(Guid.NewGuid().GetHashCode()).Next(1,7);
-            //Console.WriteLine("Die = " +  Value);
+
+            // Return new value
             return Value;
         }
 

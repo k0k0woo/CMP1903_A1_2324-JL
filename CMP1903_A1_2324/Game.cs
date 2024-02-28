@@ -23,42 +23,66 @@ namespace CMP1903_A1_2324
         public Die dice3 = new Die();
 
 
-        // sum variable
+        // Sum variable
         private int _sum;
 
-        //propeties
+        // Number of rolls
+        private int _rollNumberOfTimes;
+
+        // Sum calculation
+        private double _sumTotal;
+        private int _minSum;
+        private int _maxSum;
+        private double _average;
+
+        // Propeties
         public int sum { get { return _sum; }set { _sum = value; }}
+        public int rollNumberOfTimes { get { return _rollNumberOfTimes; }set { _rollNumberOfTimes = value; }}
+        public double sumTotal { get { return _sumTotal;}set { _sumTotal = value; }}
+        public int minSum { get { return _minSum; }set { _minSum = value; }}
+        public int maxSum { get { return _maxSum;}set { _maxSum = value; }}
+        public double average { get { return _average; }set { _average = value; }}
 
 
-        //Methods
+        // Methods
 
         // Method called to start game
         public void GameStart()
         {
+
+            // Ask user for input of how many times wanted to simulate
             Console.WriteLine("Enter times rolled: ");
 
-            string RollNumString = Console.ReadLine();
+            string rollNumString = Console.ReadLine();
 
-            int RollNumInt;
+            // setup integer variable
+            int rollNumInt;
 
-            bool RollNumBool = int.TryParse(RollNumString, out RollNumInt);
+            // Check if value is integer
+            bool rollNumBool = int.TryParse(rollNumString, out rollNumInt);
 
-            if (RollNumBool)
+            // If success call RollDice()
+            if (rollNumBool)
             {
-                RollDice(RollNumInt);
+                rollNumberOfTimes = rollNumInt;
+                RollDice();
             }
+            // Else tell user not a valid input
             else
             { 
                 Console.WriteLine("Error value not integer."); 
             }
         }
 
-        private void RollDice(int RollNum)
+        private void RollDice()
         {
+            // List of sums variable define
             var sumsList = new List<int>();
-            for (int i = 1; i < RollNum+1; i++)
+
+            // Loop for the number of asked roll times
+            for (int count = 1; count < rollNumberOfTimes + 1; count++)
             {
-                // set sum
+                // Set sum
                 sum = 0;
 
                 // Call Roll dice method and add output to sum
@@ -66,57 +90,77 @@ namespace CMP1903_A1_2324
                 sum += dice2.RollDice();
                 sum += dice3.RollDice();
 
+                // Add to list
                 sumsList.Add(sum);
+
                 // Output final sum
-                Console.WriteLine("\nRoll: " + i + " Sum = " + sum);
+
+                Console.WriteLine("Roll: " + count + " ||| Dice = " + dice1.Value + " : " + dice2.Value + " : " + dice3.Value + " ||||| Sum = " + sum);
             }
 
-            sumsList.ToArray();
-            double total = 0;
-            int minSum = 0;
-            int maxSum = 0;
-            double average;
+            // Calculate statistics
+            StatisticCalc(sumsList.ToArray());
+
+        }
+
+        private void StatisticCalc(int[] sumsList)
+        {
+
+            // Variables set
+            sumTotal = 0;
+
+            minSum = 0;
+
+            maxSum = 0;
+
+            average = 0;
+
+            // Loop through list of sums
 
             foreach (int number in sumsList)
             {
-                total += number;
+                // Add to running total
+                sumTotal += number;
 
-                // check if smallest
-                minSum = MinCheck(number,minSum);
+                // Check if smallest
+                minSum = MinCheck(number);
 
-                // check if biggest
-                maxSum = MaxCheck(number,maxSum);
+                // Check if biggest
+                maxSum = MaxCheck(number);
             }
 
-            // calculate average
-            average = CalcAverage(total,sumsList.Count);
+            // Calculate average
+            average = CalcAverage(sumTotal,sumsList.Length);
 
 
-            //output data to terminal
-            Console.WriteLine("\nTotal sum: " + total + "\nHighest sum: " + maxSum + "\nLowest sum: " + minSum + "\nAverage: " + average.ToString("0.00"));
+            // Output data to terminal
+            Console.WriteLine("\nTotal sum: " + sumTotal + "\nHighest sum: " + maxSum + "\nLowest sum: " + minSum + "\nAverage: " + average.ToString("0.00"));
         }
 
-        //Check if number is smaller
-        private int MinCheck(int number, int minSum) 
+        // Check if number is smaller
+        private int MinCheck(int number) 
         {
-            //if number is smaller return number
+            // If number is smaller return number
             if (number < minSum || minSum == 0) { return number; }
-            //else return current minsum
+            // Else return current minsum
             else { return minSum; }
         }
 
-        private int MaxCheck(int number, int maxSum) 
+        // Check if number is bigger
+        private int MaxCheck(int number) 
         {
-            //if number is smaller return number
+            // If number is smaller return number
             if (number > maxSum || maxSum == 0) { return number; }
-            //else return current minsum
+            // Else return current minsum
             else { return maxSum; }
         }
 
+        // Find mean
         private double CalcAverage(double total,double numElements)
         {
-            // divide total sum by number of sums (calc mean)
-            return total / numElements;
+            // Divide total sum by number of sums (calc mean)
+            // Convert to a 2 decimal string
+            return (total / numElements);
         }
     }
 }
