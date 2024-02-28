@@ -15,7 +15,44 @@ namespace CMP1903_A1_2324
          * rolls could be continous, and the totals and other statistics could be summarised for example.
          */
 
+        // Create Die
+
+        private Die dice1 = new Die();
+        private Die dice2 = new Die();
+        private Die dice3 = new Die();
+
+        // Create random seed
+        private Random random = new Random();
+
+
         //Methods
 
+        // Method called to start game
+        public void GameStart()
+        {
+            // set sum
+            int sum = 0;
+
+            // Call Roll dice method and add output to sum
+            sum += CallDiceRoll(dice1, random);
+            sum += CallDiceRoll(dice2, random);
+            sum += CallDiceRoll(dice3, random);
+
+            // Output final sum
+            Console.WriteLine("\nSum = " + sum);
+        }
+
+        // Method to roll die
+        static int CallDiceRoll(Die die,Random random)
+        {
+            // Call dice method to roll with input of random seed
+            die.RollDice(random);
+
+            // Output die roll to terminal
+            Console.WriteLine("Die rolled =  " + die.Value);
+
+            // return roll value
+            return die.Value;
+        }
     }
 }
