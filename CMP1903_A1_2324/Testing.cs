@@ -17,7 +17,7 @@ namespace CMP1903_A1_2324
          */
 
 
-=======
+
         // Method
         public void Test(Game game)
         {
@@ -46,6 +46,6 @@ namespace CMP1903_A1_2324
 				// Wait for input
 				Console.ReadLine();
         }
->>>>>>> Dev-branch
+
     }
 }
