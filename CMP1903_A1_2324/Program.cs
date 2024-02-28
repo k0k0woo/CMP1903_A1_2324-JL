@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,9 @@ namespace CMP1903_A1_2324
             // Create game object
             Game game = new Game();
 
+            // Create testing for debugging
+            Testing testing = new Testing();
+
             // Create an endless loop
             while (true)
             {
@@ -26,10 +30,9 @@ namespace CMP1903_A1_2324
                 // Call start game method
                 game.GameStart();
 
-                // After game done, tell user how to play again
-                Console.WriteLine("\nPress enter to roll again ....");
-                // Wait for input
-                Console.ReadLine();
+                // Run test
+                testing.Test(game);
+
             }
         }
     }
