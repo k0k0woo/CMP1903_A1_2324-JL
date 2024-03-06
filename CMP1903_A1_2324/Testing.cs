@@ -44,7 +44,7 @@ namespace CMP1903_A1_2324
                 // After game done, tell user how to play again
                 Console.WriteLine("\nPress enter to roll again...");
 				// Wait for input
-				Console.ReadLine();
+				Console.ReadKey();
         }
 
     }
